@@ -58,3 +58,34 @@ res.status(404).json({
 })
 }
  }
+ export const editarProducto = async (req,res)=>{
+  try{
+ //buscar el producrto por id y modidificar los datos, con el body
+await Producto.findByIdAndUpdate(req.params.id,req.body)
+ //responder al front end
+ res.status(200).json({
+  mensaje: "El producto fue editado correctamente"
+ })
+  }catch(error){
+  console.log(error)
+  res.status(404).json({
+    mensaje:"error el producto solicitado no fue encontrado"
+  })
+  }
+   }
+   export const borrarProducto = async (req,res)=>{
+    try{
+ //buscar un producto por el id y borrarlo
+ await Producto.findByIdAndDelete(req.params.id)
+ //responder al front end si oudo borar el producto
+ res.status(200).json({
+  mesaje:"el producto fue correctamente eliminadio"
+ })
+    }catch(error){
+    console.log(error)
+    res.status(404).json({
+      mensaje:"error el producto solicitado no fue eliminado"
+    })
+    }
+  }
+     
