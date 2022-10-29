@@ -2,7 +2,7 @@ import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 import path from 'path';
-import "./database" from 'database.js'
+import "./database";
 //para usar express que es el bootstrap del lado del bakcend
 //creo una instancia de express
 //tiwene que ser express con miniuscila
