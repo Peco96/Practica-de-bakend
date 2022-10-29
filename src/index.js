@@ -2,18 +2,19 @@ import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 import path from 'path';
+import "./database" from 'database.js'
 //para usar express que es el bootstrap del lado del bakcend
 //creo una instancia de express
 //tiwene que ser express con miniuscila
 const app = express();
 //creamos una variable port 
-app.set('port', process.env.PORT || 4000);
+app.set('port', process.env.PORT || 4001);
 //usar el puerto
 app.listen(app.get('port'), ()=>{
     console.log('estoy en el puerto ' + app.get('port'))
 })
 
-console.log('hola mundo cami');
+console.log('hola mundo');
 
 //middlewares: funciones que se ejecutan antes de las rutas
 // morgan da informascion extra enl a terminal
@@ -29,6 +30,6 @@ console.log()
 
 //rutas:nombre de dominio + ---
 
-app.get('/prueba', (req, res)=>{
+app.get('/productos', (req, res)=>{
  res.send('esto es una prueba de la peticion get')
 })
