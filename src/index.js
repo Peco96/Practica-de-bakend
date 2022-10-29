@@ -29,7 +29,14 @@ app.use(express.static(path.join(__dirname, '../public')))
 console.log()
 
 //rutas:nombre de dominio + ---
-
+//no puedo hacer dos petiicones get en la misma ruta!!
 app.get('/productos', (req, res)=>{
- res.send('esto es una prueba de la peticion get')
+ res.send('aqui tengo que retornat un arreglo de productos')
 })
+//pero si puedo hacer distintas peticiones (post get y delete) a la misma ruta
+app.post('/productos', (req, res)=>{
+    res.send('esto es una prueba de la peticion post')
+   })
+app.post('/producto2', (req, res)=>{
+    res.send('aqui devilvemos un producto')
+   })
