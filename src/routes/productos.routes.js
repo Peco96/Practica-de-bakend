@@ -6,6 +6,12 @@ const router = Router();
 router.route('/productos')
 .get(listarProductos)
 .post(crearProducto)
+
+router.route("/productos/:id")
+//.get()
+//.put
+//.delete()
+
 export default router;
 //rutas:nombre de dominio + ---
 //no puedo hacer dos peticiones get en la misma ruta!!
