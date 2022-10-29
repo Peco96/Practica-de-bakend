@@ -3,6 +3,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import path from 'path';
 import "./database";
+import productosRouter from './routes/productos.routes';
 //para usar express que es el bootstrap del lado del bakcend
 //creo una instancia de express
 //tiwene que ser express con miniuscila
@@ -26,17 +27,6 @@ console.log('hola mundo');
  app.use(express.urlencoded({extended:true}))
 //cargar un archivo estático
 app.use(express.static(path.join(__dirname, '../public')))
-console.log()
+// console.log(path.join(__dirname,'../public'))
+app.use('/apicafe',productosRouter);
 
-//rutas:nombre de dominio + ---
-//no puedo hacer dos petiicones get en la misma ruta!!
-app.get('/productos', (req, res)=>{
- res.send('aqui tengo que retornat un arreglo de productos')
-})
-//pero si puedo hacer distintas peticiones (post get y delete) a la misma ruta
-app.post('/productos', (req, res)=>{
-    res.send('esto es una prueba de la peticion post')
-   })
-app.post('/producto2', (req, res)=>{
-    res.send('aqui devilvemos un producto')
-   })
