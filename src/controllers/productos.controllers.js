@@ -1,3 +1,4 @@
+import { validationResult } from "express-validator";
 import Producto from "../models/producto";
 
 export const listarProductos = async(req,res) => {
@@ -22,6 +23,17 @@ export const crearProducto = async(req,res) => {
     
     
     try {
+//manejar los errores de express validatos
+const errores = validationResult(req)
+// errores.esEmpy() retorna tru conado esta todo bien y folse cuando sale mal
+//pregunto si hay errores
+if(! errores.isEmpty()){
+ return res.status(400).json({
+    errores: errores.array()
+  })
+}
+
+
         console.log(req.body);
         //validar esos datos con backend y frontend correspondientes
     
